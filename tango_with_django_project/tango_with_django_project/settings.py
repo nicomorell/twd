@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+#print __file__
+#print os.path.dirname(__file__)
+#print os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -28,6 +30,27 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+	TEMPLATE_PATH,
+)
+
+STATIC_PATH = os.path.join(BASE_DIR,'static')
+
+STATIC_URL = '/static/' 
+
+STATICFILES_DIRS = ( 
+	STATIC_PATH,
+)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Absolute path to the media directory
+
 
 INSTALLED_APPS = (
     'django.contrib.admin',
