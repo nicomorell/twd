@@ -5,12 +5,9 @@ from rango import views
 from django.conf import settings
 
 urlpatterns = patterns('',
-                       url(r'^$', views.index, name='index'),
-                       url(r'^about/$', views.about, name='about'),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^rango/$', include('rango.urls')),
-    url(r'^about/', include('rango.urls')),
+    url(r'^rango/', include('rango.urls')),
 )
 # Construct a dictionary to pass to the template engine as its context.
 if settings.DEBUG:
