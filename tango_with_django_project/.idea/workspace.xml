@@ -26,7 +26,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rango/forms.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
@@ -39,18 +39,6 @@
         </entry>
       </file>
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tango_with_django_project/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rango/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -479,22 +467,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rango/models.py">
+    <entry file="file://$PROJECT_DIR$/rango/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rango/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-857">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -509,22 +487,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rango/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-857">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rango/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rango/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rango/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
