@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 
 
 from django.template.defaultfilters import slugify
@@ -30,3 +31,15 @@ class Page(models.Model):
 
     def __unicode__(self):
         return self.title
+
+class UserProfile(models.Model):
+    # Links UserProfile to a User model instance
+    user = models.OneToOneField(User)
+
+    # Additional attributes we want to include. Blank = True so users don't have to supply values
+    website = models.URLField(blank = True)
+    picture = models.ImageField(upload_to='profile_images', blank = True)
+
+    # Override __unicode__() method to return something meaningful
+    def __unicode__(self):
+        return self.user.username
