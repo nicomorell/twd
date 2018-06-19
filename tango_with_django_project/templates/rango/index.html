@@ -18,5 +18,16 @@
             <strong>There are no categories present.</strong>
        {% endif %}
 
+        {% if pages %}
+            <ul>
+                {% for page in pages %}
+                <li>{{ page.title }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no pages present.</strong>
+        {% endif %}
     </body>
 </html>
+
+
