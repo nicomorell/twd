@@ -5,18 +5,24 @@
     </head>
 
     <body>
-        {% if category %}
+        {%if category %} <!-- If category is defined we proceed to check pages -->
         <h1>{{ category_name }}</h1>
             {% if pages %}
             <ul>
                 {% for page in pages %}
                 <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-                {% endfor %}
-            </ul>
+                {% endfor %}                
+            </ul><br/>
+            <strong>Would you like to add more </strong>
+		<a href="{% url 'add_page' category.slug %}">Add page</a>
+            <strong>?</strong>
+
             {% else %}
-                <strong>No pages currently in category.</strong>
+                <strong>No pages currently in category. Would you like to </strong>
+                <a href="{% url 'add_page' category.slug %}">make one</a>
+                <strong>?</strong>
             {% endif %}
-        {% else %}
+        {% else %} <!-- If category is not defind an error message tells us so! -->
             The specified category {{ category_name }} does not exist!
         {% endif %}
     </body>
