@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Rango</title>
-    </head>
 
-    <body>
+{% extends 'rango/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ category_name }}{% endblock %}
+
+{% block body_block %}
         {%if category %} <!-- If category is defined we proceed to check pages -->
         <h1>{{ category_name }}</h1>
             {% if pages %}
@@ -21,11 +22,10 @@
 		{% endif %}
             {% else %}
                 <strong>No pages currently in category. Would you like to </strong>
-                <a href="{% url 'add_page' category.slug %}">make one</a>
+                <a href="/rango/category/{{category.slug}}/add_page/">make one</a>
                 <strong>?</strong>
             {% endif %}
         {% else %} <!-- If category is not defind an error message tells us so! -->
             The specified category {{ category_name }} does not exist!
         {% endif %}
-    </body>
-</html>
+{% endblock %}
