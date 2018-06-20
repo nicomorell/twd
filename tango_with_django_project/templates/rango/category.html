@@ -13,10 +13,12 @@
                 <li><a href="{{ page.url }}">{{ page.title }}</a></li>
                 {% endfor %}                
             </ul><br/>
+		{% if user.is_authenticated %}
             <strong>Would you like to add more </strong>
-		<a href="{% url 'add_page' category.slug %}">Add page</a>
+		<a href="{% url 'add_page' category.slug %}">pages</a>
             <strong>?</strong>
-
+		{% else %}
+		{% endif %}
             {% else %}
                 <strong>No pages currently in category. Would you like to </strong>
                 <a href="{% url 'add_page' category.slug %}">make one</a>
