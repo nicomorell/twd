@@ -15,16 +15,17 @@
 <div>
         <ul>
   	  {% if user.is_authenticated %}
-     	   <li><a href="{% url 'restricted' %}">Restricted Page</a></li>
-      	  <li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
-       	 <li><a href="{% url 'add_category' %}">Add a New Category</a></li>
+       		<li><a href="{% url 'add_category' %}">Add a New Category</a></li>
+     		<li><a href="{% url 'restricted' %}">Restricted Page</a></li>
+		<li><a href="{% url 'auth_password_change' %}">Change Password</a></li>
+      	 	<li><a href="{% url 'auth_logout' %}?next=/rango/">Logout</a></li>
    	 {% else %}
-     	   <li><a href="{% url 'registration_register' %}">Register Here</a></li>
-      	  <li><a href="{% url 'auth_login' %}">Login</a></li>
+		<li><a href="{% url 'auth_login' %}">Login</a></li>
+     	 	<li><a href="{% url 'registration_register' %}">Register Here</a></li>
    	 {% endif %}
-
-   	 <li><a href="{% url 'about' %}">About</a></li>
-   	 <li><a href="{% url 'index' %}">Return back to the homepage!</a></li>
+		<br></br>
+   	 	<li><a href="{% url 'about' %}">About</a></li>
+   	 	<li><a href="{% url 'index' %}">Return back to the homepage!</a></li>
     	</ul>
 </div>
     </body>
