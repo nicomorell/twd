@@ -8,6 +8,15 @@ from rango.forms import CategoryForm
 
 from rango.forms import PageForm
 
+from django.shortcuts import redirect
+
+from rango.models import UserProfile
+
+from django.template import RequestContext
+
+from django.shortcuts import render_to_response
+
+from django.contrib.auth.models import User
 from rango.forms import UserForm, UserProfileForm
 
 from django.contrib.auth import authenticate, login
@@ -62,9 +71,43 @@ def about(request):
     # remember to include the visit data
     return render(request, 'rango/about.html', {'visits': count})
 
+def encode_url(str):
+    return str.replace(' ', '_')
 
+def decode_url(str):
+    return str.replace('_', ' ')
 
+def get_category_list(max_results=0, starts_with=''):
+    cat_list = []
+    if starts_with:
+        cat_list = Category.objects.filter(name__startswith=starts_with)
+    else:
+        cat_list = Category.objects.all()
 
+    if max_results > 0:
+        if (len(cat_list) > max_results):
+            cat_list = cat_list[:max_results]
+
+    for cat in cat_list:
+        cat.url = encode_url(cat.name)
+
+    return cat_list
+
+@login_required
+def profile(request):
+    context = RequestContext(request)
+    cat_list = get_category_list()
+    context_dict = {'cat_list': cat_list}
+    u = User.objects.get(username=request.user)
+
+    try:
+        up = UserProfile.objects.get(user=u)
+    except:
+        up = None
+
+    context_dict['user'] = u
+    context_dict['userprofile'] = up
+    return render_to_response('rango/profile.html', context_dict, context)
 def category(request, category_name_slug):
 
     # Create a context dictionary which we can pass to the template rendering engine.
@@ -76,11 +119,13 @@ def category(request, category_name_slug):
         # So the .get() method returns one model instance or raises an exception.
 
         category = Category.objects.get(slug=category_name_slug)
+
         context_dict['category_name'] = category.name
 
         # Retrieve all of the associated pages.
         # Note that filter returns >= 1 model instance.
-        pages = Page.objects.filter(category=category)
+        pages = Page.objects.filter(category=category).order_by('-views')
+
 
         # Adds our results list to the template context under name pages.
         context_dict['pages'] = pages
@@ -150,3 +195,19 @@ def add_page(request, category_name_slug):
 @login_required
 def restricted(request):
     return render(request, 'rango/restricted.html', {})
+
+def track_url(request):
+    page_id = None
+    url = '/rango/'
+    if request.method == 'GET':
+        if 'page_id' in request.GET:
+            page_id = request.GET['page_id']
+            try:
+                page = Page.objects.get(id=page_id)
+                page.views = page.views + 1
+                page.save()
+                url = page.url
+            except:
+                pass
+
+        return redirect(url)
